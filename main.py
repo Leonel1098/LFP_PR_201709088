@@ -1,3 +1,11 @@
+import os
+import tkinter
+from tkinter import Tk 
+from tkinter import filedialog
+import io
+from io import*
+
+
 def Menu():
     opcion = True  
     
@@ -13,13 +21,13 @@ def Menu():
         print("5. Salir")
         opcion = input ("")
         if opcion == "1" :
-            #cargardata()
             print("Data cargada")
+            Ventana_CargarVentas()
             print("")
         elif opcion == "2" :
-            #cargarinstrucciones()
             print("")
             print("Instrucciones Cargadas")
+            Ventana_CargarInstrucciones()
             print("")
         elif opcion == "3" :
            #analizar()
@@ -38,9 +46,31 @@ def Menu():
         else:
             input("Ingrese una opción válida :)")
             print("")
-   
 
-Menu()
+def Ventana_CargarVentas():
+    root = Tk()
+    archivo =  filedialog.askopenfilename(initialdir = "/") 
+    ventas_upload = open(archivo ,'r',encoding ="utf8")
+    read = ventas_upload.read()
+    ventas_upload.close()
+    print(read)
+    root = destroyer()
+
+def Ventana_CargarInstrucciones():
+    root=Tk()
+    archivo =  filedialog.askopenfilename(initialdir = "/")
+    instrucciones_upload = open(archivo, 'r',encoding = "utf8")
+    read = instrucciones_upload.read()
+    instrucciones_upload.close()
+    print(read)
+    root = destroyer()
+
+if __name__ == "__main__":
+    Menu()
+
+
+
+    
 
 
 
