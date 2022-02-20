@@ -4,13 +4,17 @@ from tkinter import Tk
 from tkinter import filedialog
 import io
 from io import*
-
+from Analizador_Ventas import *
+from Mes import *
+from Producto import *
+from Reporte import *
+ventas = Analizador_Ventas()
+Datos = ""
 
 def Menu():
     opcion = True  
     
     while opcion :
-        
         
         print("**** Funciones del Sistema ****")
         print("** Elija una opción **")
@@ -21,24 +25,32 @@ def Menu():
         print("5. Salir")
         opcion = input ("")
         if opcion == "1" :
-            print("Data cargada")
-            Ventana_CargarVentas()
             print("")
+            print("---------- Data Cargada -----------")
+            Ventana_CargarVentas()
+            
+            print("")
+
         elif opcion == "2" :
             print("")
-            print("Instrucciones Cargadas")
+            print("--------- Instrucciones Cargadas ----------")
             Ventana_CargarInstrucciones()
             print("")
+
         elif opcion == "3" :
-           #analizar()
             print("")
-            print("Analisis hecho")
+            print("---------- Análisis Hecho ----------")
+            global Datos
+            #print(Datos)
+            ventas.analizador_ventas(Datos)
             print("")
+
         elif opcion == "4" :
-            #reportes()
             print("")
             print("Reportes hechos")
+            Reporte()
             print("")
+
         elif opcion == "5" :
             print("Gracias, vuelve pronto :)")
             opcion = False
@@ -48,22 +60,22 @@ def Menu():
             print("")
 
 def Ventana_CargarVentas():
-    root = Tk()
     archivo =  filedialog.askopenfilename(initialdir = "/") 
     ventas_upload = open(archivo ,'r',encoding ="utf8")
     read = ventas_upload.read()
     ventas_upload.close()
-    print(read)
-    root = destroyer()
+    global Datos
+    Datos = read
+    print(Datos)
+    
 
 def Ventana_CargarInstrucciones():
-    root=Tk()
     archivo =  filedialog.askopenfilename(initialdir = "/")
     instrucciones_upload = open(archivo, 'r',encoding = "utf8")
     read = instrucciones_upload.read()
     instrucciones_upload.close()
     print(read)
-    root = destroyer()
+
 
 if __name__ == "__main__":
     Menu()
