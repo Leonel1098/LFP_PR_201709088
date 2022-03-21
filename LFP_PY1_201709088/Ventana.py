@@ -31,6 +31,7 @@ def Analizando():
     f = open ("Analizador.txt","w")
     f.write(Data)
     f.close()
+    entry.Formulario()
     
 
 def Reportando():
@@ -43,10 +44,13 @@ def Reportando():
 
     if reportes == "Reporte de Tokens":
         lexema.ErrorToken()
+
     elif reportes == "Reporte de Errores":
         lexema.ErrorReporte()
+
     elif reportes == "Manual de Usuario":
         webbrowser.open("Manual de Usuario.pdf")
+
     elif reportes == "Manual Técnico":
         webbrowser.open("Manual Tecnico.pdf")
 
@@ -89,7 +93,7 @@ combo.place(x=10, y = 115, width = "150", height = "40")
 buttonabrir = Button(panel_Frame, text="Seleccionar Reporte",command = Reportando, foreground = "white")
 buttonabrir.pack()
 buttonabrir.config(bg = "black")
-buttonabrir.place(x= 10, y=140, width = "150", height = "40")
+buttonabrir.place(x= 10, y=160, width = "150", height = "40")
 
 
 

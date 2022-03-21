@@ -19,10 +19,10 @@ def reporterror(listaError = []):
     </head>
     <body>
     <div class="container">
-  <h2>Nombre : Leonel Antonio González García </h2>
-  <h2> Carne : 201709088</h2>
+  <h2 style = "background-color:#6c757d">Nombre : Leonel Antonio González García </h2>
+  <h2 style = "background-color:#6c757d"> Carne : 201709088</h2>
       
-  <table class="table">
+  <table class="table table-dark table-borderless">
     <thead>
       <tr>
        

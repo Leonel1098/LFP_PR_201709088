@@ -1,10 +1,4 @@
-import webbrowser
-
-def reportoken(listaToken = []):
-  info = " "
-  htmlFile = open("Token.html", "w")
-
-  htmlFile.write("""<!DOCTYPE HTML PUBLIC"
+<!DOCTYPE HTML PUBLIC"
 
     <html>
 
@@ -19,7 +13,7 @@ def reportoken(listaToken = []):
     </head>
     <body>
     <div class="container">
-  <h2 style = "background-color:#6c757d">Nombre : Leonel Antonio Gonz√°lez Garc√≠a </h2>
+  <h2 style = "background-color:#6c757d">Nombre : Leonel Antonio Gonz·lez GarcÌa </h2>
   <h2 style = "background-color:#6c757d"> Carne : 201709088</h2>
       
   <table class="table table-dark table-borderless">
@@ -33,22 +27,8 @@ def reportoken(listaToken = []):
       </tr>
     </thead>
 
-    """)
-
-  for tok in listaToken:
-        info += '<tr>'
-        info += "<td>"+ tok.tipo + "</td>\n"
-        info += "<td>"+ tok.lexema + "</td>\n"
-        info += "<td>"+ str(tok.linea) + "</td>\n"
-        info += "<td>"+ str(tok.columna) + "</td>\n"
-        info += '<tr>'
-
-
-  htmlFile.write(info)
-  htmlFile.write("""
+     
       </table>
     </div>
         </body>
-        </html>""")
-  webbrowser.open("Token.html")
-  htmlFile.close
+        </html>

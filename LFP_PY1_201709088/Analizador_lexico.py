@@ -2,6 +2,7 @@ from Clases import Token
 from Clases import Error
 from ErrorReporte import reporterror
 from TokenReporte import reportoken
+from Formulario import Formulario
 import re
 
 class Analizador_lexico:
@@ -172,7 +173,7 @@ class Analizador_lexico:
                     token = Token(Tokentipo,buffer,linea,columna)
                     self.listTokens.append(token)
                     buffer = ""
-                    index += 1
+                    index -= 1
                     estado = 0
                     
             elif estado == 2:
@@ -213,10 +214,21 @@ class Analizador_lexico:
                 self.listError.append(errores)
                 buffer = ""
                 estado = 0
-            
+                columna += 1
+                index -= 1
             index += 1
         return entry
 
+
+    
+    def ErrorToken(self):
+        reportoken(self.listTokens)
+    
+    def ErrorReporte(self):
+        reporterror(self.listError)
+    
+    def Formulario(self):
+        Formulario()
 
     def imprimirInfo(self):
         print("\n\n\n")
@@ -234,9 +246,3 @@ class Analizador_lexico:
             print(i+1)
             errores.getError()
             i += 1
-    
-    def ErrorToken(self):
-        reportoken(self.listTokens)
-    
-    def ErrorReporte(self):
-        reporterror(self.listError)
